@@ -1,6 +1,6 @@
 let number = 103.932
 
-console.log(number.toFixed(2))
+// console.log(number.toFixed(2))
 
 // round the number
 Math.round(number)
@@ -16,6 +16,14 @@ let randomNumber = Math.random()
 
 let min = 10, max = 20
 
-let randomNumber2 = Math.floor(Math.random()*(max - min + 1) + min)
+// let randomNumber2 = Math.floor(Math.random()*(max - min + 1) + min)
 
-console.log(randomNumber2)
+// console.log(randomNumber2)
+
+// Challenge Area
+let enterGuess = function (guess) {
+    let randomGuess = Math.floor(Math.random()*(5 - 1 + 1) + 1)
+    return guess == randomGuess
+}
+
+console.log(enterGuess(3))
