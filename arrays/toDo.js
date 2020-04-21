@@ -61,8 +61,43 @@ const getThingsToDo = function (todos) {
     })  
 }
 
-console.log(getThingsToDo(todo))
+// console.log(getThingsToDo(todo))
 
 // console.log(todo)
 // deleteTodo(todo, 'study')
 // console.log(todo)
+
+// Challenge 3.
+// 1. Sort todo
+// 2. Sort todo with completed as criteria
+
+const sortTodo = function (todo) {
+    todo.sort(function (a, b) {
+        if (a.text.toLowerCase() < b.text.toLowerCase()){
+            return -1
+        }else if (b.text.toLowerCase() < a.text.toLowerCase()){
+            return 1
+        }else {
+            return 0
+        }
+    })
+}
+
+sortTodo(todo)
+console.log(todo)
+
+const sortTodoCompleted = function (todo) {
+    todo.sort(function (a, b) {
+        if (a.completed < b.completed) {
+            // sortTodo(todo)
+            return -1
+        }else if (b.completed < a.completed) {
+            return 1
+        }else {
+            return 0
+        }
+    })
+}
+
+sortTodoCompleted(todo)
+console.log(todo)
