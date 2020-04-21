@@ -51,10 +51,18 @@ const deleteTodo = function(todos, text) {
     if (index > -1){
         todos.splice(index, 1, `item removed`)
     }
-
-
 }
 
-console.log(todo)
-deleteTodo(todo, 'study')
-console.log(todo)
+// Chalenge 2.
+// Function to get not completed todos
+const getThingsToDo = function (todos) {
+    return todos.filter(function(todo) {
+        return !todo.completed
+    })  
+}
+
+console.log(getThingsToDo(todo))
+
+// console.log(todo)
+// deleteTodo(todo, 'study')
+// console.log(todo)
