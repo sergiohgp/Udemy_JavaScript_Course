@@ -1,5 +1,16 @@
 // DOM - Document Object Manipulation
 
+const notes = [{
+    title: 'My next trip',
+    body: 'I would like to go to ski'
+}, {
+    title: 'My next meeting',
+    body: 'I would like to review subjects'
+}, {
+    title: 'My next lunch',
+    body: 'I would like to eat pasta'
+}]
+
 const p = document.querySelector('p')
 
 // p.remove()
@@ -13,4 +24,8 @@ ps.forEach(function (p) {
 
 console.log(p)
 
-// Challenge DOM
+// Create element
+const newParagraph = document.createElement('p')
+
+newParagraph.textContent = 'New Paragraph'
+document.querySelector('body').appendChild(newParagraph)
