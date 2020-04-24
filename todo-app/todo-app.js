@@ -62,5 +62,17 @@ todos.forEach(function (todo) {
     document.querySelector('body').appendChild(addTodo)
 })
 
+// Listen to new todo creation
+document.querySelector('#add-todo').addEventListener('click', function (event) {
+    const p = document.createElement('p')
+    p.textContent = 'ToDo created successfuly!'
+    document.querySelector('body').appendChild(p)
+})
+
+// Listen for todo search
+document.querySelector('#search-todo').addEventListener('input', function (event) {
+    console.log(event.target.value)
+})
+
 // newElement.textContent
 // newElement.appendChild
