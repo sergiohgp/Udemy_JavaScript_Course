@@ -87,18 +87,14 @@ const getTodo = function (todos) {
 
 
 
-todos.forEach(function (todo) {
-    const addTodo = document.createElement('p')
-    addTodo.textContent = todo.text
-    // document.querySelector('body').appendChild(addTodo)
-})
+
 
 // Listen to new todo creation
-document.querySelector('#add-todo').addEventListener('click', function (event) {
-    const p = document.createElement('p')
-    p.textContent = 'ToDo created successfuly!'
-    document.querySelector('body').appendChild(p)
-})
+// document.querySelector('#add-todo').addEventListener('click', function (event) {
+//     const p = document.createElement('p')
+//     p.textContent = 'ToDo created successfuly!'
+//     document.querySelector('body').appendChild(p)
+// })
 
 // Listen for todo search
 document.querySelector('#search-todo').addEventListener('input', function (event) {
@@ -108,3 +104,21 @@ document.querySelector('#search-todo').addEventListener('input', function (event
 
 // newElement.textContent
 // newElement.appendChild
+
+// Challenge Form
+document.querySelector('#todo-form').addEventListener('submit', function (event) {
+    event.preventDefault()
+    console.log(event.target.elements.todoTitle.value)
+    todos.push({
+        text: event.target.elements.todoTitle.value,
+        completed: false
+    })
+    renderTodos(todos, filters)
+    event.target.elements.todoTitle.value = ''
+})
+
+todos.forEach(function (todo) {
+    const addTodo = document.createElement('p')
+    addTodo.textContent = todo.text
+    // document.querySelector('body').appendChild(addTodo)
+})

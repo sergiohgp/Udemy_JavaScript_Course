@@ -4,17 +4,46 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>DOM Challenge - ToDo</title>
+    <style>
+        * {
+            margin: 15px 10px;
+        }
+        body {
+            margin: 10px;
+            /* display: flex; */
+            align-items: center;
+            text-align: center;
+        }
+        #todo-form-button {
+            padding: 5px;
+            margin: 10px;;
+        }
+        #todos {
+            background-color: bisque;
+            margin: 0px 40%;
+            padding-top: 3%;
+            padding-bottom: 3%;
+        }
+    </style>
 </head>
 <body>
 
     <h1>To Do List</h1>
-    
-    
-    <input type="text" id="search-todo" placeholder="Search todos...">
-    <button id="add-todo">Add ToDo</button>
+
+    <input type="text" name="search-todo" id="search-todo" placeholder="Search todos">
 
     <div id="todos"></div>
     <div id="incomplete-todos"></div>
+
+    <form action="" id="todo-form">
+        <input type="text" name="todoTitle" id="todoTitle" placeholder="Title">
+        <br>
+        <input type="checkbox" name="todoCompleted" id="todoCompleted" >
+        <label for="todoCompleted">Completed</label> 
+        <br>
+        <button id="todo-form-button">Add Todo</button>
+
+    </form>
 <footer>
     <script src="todo-app.js"></script>
 </footer>

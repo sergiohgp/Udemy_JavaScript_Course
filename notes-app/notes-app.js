@@ -35,15 +35,21 @@ document.querySelector('#create-note').addEventListener('click', function (event
     event.target.textContent = 'Clicked'
 })
 
-document.querySelector('#delete-note').addEventListener('click', function (event) {
-    document.querySelectorAll('.note').forEach(function (note) {
-        note.remove()
-    })
-})
+// document.querySelector('#delete-note').addEventListener('click', function (event) {
+//     document.querySelectorAll('.note').forEach(function (note) {
+//         note.remove()
+//     })
+// })
 
 document.querySelector('#input').addEventListener('input', function (event) {
     filters.searchText = event.target.value
     renderNotes(notes, filters)
+})
+
+document.querySelector('#name-form').addEventListener('submit', function (event) {
+    event.preventDefault()
+    console.log(event.target.elements.firstName.value)
+    event.target.elements.firstName.value = ''
 })
 
 // Class 1
