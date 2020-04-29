@@ -25,7 +25,8 @@ const todos = [
 }]
 
 const filters = {
-    searchText: ''
+    searchText: '',
+    hideCompleted: false
 }
 
 
@@ -47,8 +48,14 @@ const filters = {
 
 const renderTodos = function (todos, filters) {
     const filteredTodos = todos.filter(function (todo) {
-        return todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
+        const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
+        const hideCompletedMatch = !filters.hideCompleted || !todo.completed
+        return searchTextMatch && hideCompletedMatch
     })
+
+    // filteredTodos = filteredTodos.filter(function (todo) {
+    //     return !filters.hideCompleted || !todo.completed
+    // })
 
     const incompleteTodos = filteredTodos.filter(function (todo) {
         return !todo.completed
@@ -62,9 +69,17 @@ const renderTodos = function (todos, filters) {
     document.querySelector('#incomplete-todos').appendChild(todoHeader)
 
     filteredTodos.forEach(function (todo) {
-        const todoEl = document.createElement('p')
-        todoEl.textContent = todo.text
-        document.querySelector('#todos').appendChild(todoEl)
+        // if (filters.hideCompleted){
+        //     if (!todo.completed) {
+                // const todoEl = document.createElement('div')
+                // todoEl.textContent = todo.text
+                // document.querySelector('#todos').appendChild(todoEl)
+            // }
+        // } else {
+            const todoEl = document.createElement('div')
+            todoEl.textContent = todo.text
+            document.querySelector('#todos').appendChild(todoEl)
+        // }
     })
 }
 
@@ -77,17 +92,6 @@ const getTodo = function (todos) {
         return !todo.completed
     })
 }
-// let counter = 0
-// todos.forEach(function (todo) {
-//     if (!todo.completed) {
-//         counter++
-//     }
-
-// })
-
-
-
-
 
 // Listen to new todo creation
 // document.querySelector('#add-todo').addEventListener('click', function (event) {
@@ -121,4 +125,10 @@ todos.forEach(function (todo) {
     const addTodo = document.createElement('p')
     addTodo.textContent = todo.text
     // document.querySelector('body').appendChild(addTodo)
+})
+
+document.querySelector('#hideCompleted').addEventListener('change', function (e) {
+        filters.hideCompleted = e.target.checked
+        renderTodos(todos, filters)
+    console.log(e.target.checked)
 })

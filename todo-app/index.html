@@ -19,10 +19,15 @@
             margin: 10px;;
         }
         #todos {
-            background-color: bisque;
+            background-color: grey;
             margin: 0px 40%;
             padding-top: 3%;
             padding-bottom: 3%;
+        }
+        #todos div {
+            margin-top: 5px;
+            background-color: azure;
+            padding: 5px;
         }
     </style>
 </head>
@@ -38,8 +43,8 @@
     <form action="" id="todo-form">
         <input type="text" name="todoTitle" id="todoTitle" placeholder="Title">
         <br>
-        <input type="checkbox" name="todoCompleted" id="todoCompleted" >
-        <label for="todoCompleted">Completed</label> 
+        <input type="checkbox" name="hideCompleted" id="hideCompleted" >
+        <label for="hideCompleted">Hide Completed</label> 
         <br>
         <button id="todo-form-button">Add Todo</button>
 

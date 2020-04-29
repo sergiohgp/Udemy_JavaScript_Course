@@ -46,11 +46,11 @@ document.querySelector('#input').addEventListener('input', function (event) {
     renderNotes(notes, filters)
 })
 
-document.querySelector('#name-form').addEventListener('submit', function (event) {
-    event.preventDefault()
-    console.log(event.target.elements.firstName.value)
-    event.target.elements.firstName.value = ''
-})
+// document.querySelector('#name-form').addEventListener('submit', function (event) {
+//     event.preventDefault()
+//     console.log(event.target.elements.firstName.value)
+//     event.target.elements.firstName.value = ''
+// })
 
 // Class 1
 // const p = document.querySelector('p')
@@ -72,4 +72,6 @@ document.querySelector('#name-form').addEventListener('submit', function (event)
 // newParagraph.textContent = 'New Paragraph'
 // document.querySelector('body').appendChild(newParagraph)
 
-
+document.querySelector('#showNotes').addEventListener('change', function (e) {
+    console.log(e.target.checked)
+})
