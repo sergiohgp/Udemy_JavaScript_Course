@@ -15,6 +15,23 @@ const filters = {
     searchText: ''
 }
 
+// const user = {
+//     name: 'Sergio',
+//     age: 28
+// }
+
+// const userJSON = JSON.stringify(user)
+// localStorage.setItem('user', userJSON)
+// console.log(userJSON)
+
+const userJSON = localStorage.getItem('user')
+const user = JSON.parse(userJSON)
+console.log(`${user.name} is ${user.age} yo`)
+
+// localStorage.setItem('location', 'Toronto')
+
+// console.log(localStorage.getItem('location'))
+
 const renderNotes = function (notes, filters) {
     const filteredNotes = notes.filter(function (note) {
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
@@ -72,6 +89,11 @@ document.querySelector('#input').addEventListener('input', function (event) {
 // newParagraph.textContent = 'New Paragraph'
 // document.querySelector('body').appendChild(newParagraph)
 
-document.querySelector('#showNotes').addEventListener('change', function (e) {
-    console.log(e.target.checked)
+// Listener for checkbox
+// document.querySelector('#showNotes').addEventListener('change', function (e) {
+//     console.log(e.target.checked)
+// })
+
+document.querySelector('#sortNotes').addEventListener('change', function (e) {
+    console.log(e.target.value)
 })

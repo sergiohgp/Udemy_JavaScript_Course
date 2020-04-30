@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Notes App</title>
 
+    <style>
+        * {
+            text-align: center;
+        }
+    </style>
     
 </head>
 <body>
@@ -12,6 +17,13 @@
     <h2>Take notes and never forget</h2>
 
     <input type="text" id="input">
+
+    <select name="sortNotes" id="sortNotes">
+        <option>Choose...</option>
+        <option value="edited">Last Edited</option>
+        <option value="recent">Recent First</option>
+        <option value="alphabet">Alphabetically</option>
+    </select>
 
     <div id="notes">
 
@@ -23,9 +35,6 @@
     <button id="create-note">Create Note</button>
 
     <br>
-
-    <input type="checkbox" name="showNotes" id="showNotes">
-    <label for="showNotes">Show Notes</label>
 
     <!-- <form id="name-form" action="">
         <input type="text" placeholder="First Name" name="firstName">
