@@ -1,19 +1,24 @@
 // DOM - Document Object Manipulation
 
-const notes = [{
-    title: 'My next trip',
-    body: 'I would like to go to ski'
-}, {
-    title: 'My next meeting',
-    body: 'I would like to review subjects'
-}, {
-    title: 'My next lunch',
-    body: 'I would like to eat pasta'
-}]
+// const notes = [{
+//     title: 'My next trip',
+//     body: 'I would like to go to ski'
+// }, {
+//     title: 'My next meeting',
+//     body: 'I would like to review subjects'
+// }, {
+//     title: 'My next lunch',
+//     body: 'I would like to eat pasta'
+// }]
+
+const notes = []
 
 const filters = {
     searchText: ''
 }
+
+// Check for existing data
+const notesJSON = localStorage.getItem
 
 // const user = {
 //     name: 'Sergio',
@@ -24,9 +29,9 @@ const filters = {
 // localStorage.setItem('user', userJSON)
 // console.log(userJSON)
 
-const userJSON = localStorage.getItem('user')
-const user = JSON.parse(userJSON)
-console.log(`${user.name} is ${user.age} yo`)
+// const userJSON = localStorage.getItem('user')
+// const user = JSON.parse(userJSON)
+// console.log(`${user.name} is ${user.age} yo`)
 
 // localStorage.setItem('location', 'Toronto')
 
