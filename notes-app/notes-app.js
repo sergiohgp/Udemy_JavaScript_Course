@@ -11,14 +11,18 @@
 //     body: 'I would like to eat pasta'
 // }]
 
-const notes = []
+let notes = []
 
 const filters = {
     searchText: ''
 }
 
 // Check for existing data
-const notesJSON = localStorage.getItem
+const notesJSON = localStorage.getItem('notes')
+
+if (notesJSON !== null) {
+    notes = JSON.parse(notesJSON)
+}
 
 // const user = {
 //     name: 'Sergio',
@@ -46,7 +50,14 @@ const renderNotes = function (notes, filters) {
 
     filteredNotes.forEach(function (note) {
         const noteEl = document.createElement('p')
-        noteEl.textContent = note.title
+
+        if (note.title.length > 0) {
+            noteEl.textContent = note.title
+        } else {
+            noteEl.textContent = 'Unnamed note'
+        }
+
+        
         document.querySelector('#notes').appendChild(noteEl)
     })
 }
@@ -54,7 +65,12 @@ const renderNotes = function (notes, filters) {
 renderNotes(notes, filters)
 
 document.querySelector('#create-note').addEventListener('click', function (event) {
-    event.target.textContent = 'Clicked'
+    notes.push({
+        title: '',
+        body: ''
+    })
+    localStorage.setItem('notes', JSON.stringify(notes))
+    renderNotes(notes, filters)
 })
 
 // document.querySelector('#delete-note').addEventListener('click', function (event) {

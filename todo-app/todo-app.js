@@ -1,28 +1,36 @@
 
-const todos = [
-    {
-    text:'Shopping',
-    completed: true
-}, 
-{
-    text: 'Walk',
-    completed: false
-}, 
-{
-    text: 'Children pickup',
-    completed: true
-}, 
-{
-    text: 'Study',
-    completed: true
-},
-{
-    text: 'Meeting',
-    completed: false
-},{
-    text: 'Work Meeting',
-    completed: true
-}]
+// const todos = [
+//     {
+//     text:'Shopping',
+//     completed: true
+// }, 
+// {
+//     text: 'Walk',
+//     completed: false
+// }, 
+// {
+//     text: 'Children pickup',
+//     completed: true
+// }, 
+// {
+//     text: 'Study',
+//     completed: true
+// },
+// {
+//     text: 'Meeting',
+//     completed: false
+// },{
+//     text: 'Work Meeting',
+//     completed: true
+// }]
+
+let todos = []
+
+const todosJSON = localStorage.getItem('todos')
+
+if (todosJSON !== null) {
+    todos = JSON.parse(todosJSON)
+}
 
 const filters = {
     searchText: '',
@@ -69,17 +77,9 @@ const renderTodos = function (todos, filters) {
     document.querySelector('#incomplete-todos').appendChild(todoHeader)
 
     filteredTodos.forEach(function (todo) {
-        // if (filters.hideCompleted){
-        //     if (!todo.completed) {
-                // const todoEl = document.createElement('div')
-                // todoEl.textContent = todo.text
-                // document.querySelector('#todos').appendChild(todoEl)
-            // }
-        // } else {
             const todoEl = document.createElement('div')
             todoEl.textContent = todo.text
             document.querySelector('#todos').appendChild(todoEl)
-        // }
     })
 }
 
@@ -95,7 +95,7 @@ const getTodo = function (todos) {
 
 // Listen to new todo creation
 // document.querySelector('#add-todo').addEventListener('click', function (event) {
-//     const p = document.createElement('p')
+//     const p = document.createElement('p') 
 //     p.textContent = 'ToDo created successfuly!'
 //     document.querySelector('body').appendChild(p)
 // })
